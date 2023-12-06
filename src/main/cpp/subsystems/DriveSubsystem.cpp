@@ -12,13 +12,27 @@ void DriveSubsystem::Init() {
 
 }
 
-void DriveSubsystem::ArcadeDrive( double translation , ? ) {
+void DriveSubsystem::ArcadeDrive( double translation ,double rotation) {
   //do drive stuff
-  m_front_left.Set(0);
-  m_front_right.Set(0);
-  m_back_left.Set(0);
-  m_back_right.Set(0);
-}
+  double filtered_translation = DeadBandFilter(translation);
+ double right_side = (rotation + translation)*0.2;
+ double left_side = (translation - rotation)*0.2;
+ 
+  m_front_left.Set(rotation);
+  m_front_right.Set(rotation);
+  
+  m_back_left.Set(rotation);
+  m_back_right.Set(rotation);}
+
+  double DriveSubsystem::DeadBandFilter(double raw_value){
+
+
+
+
+if (0.1<raw_value>-0.1) {return 0;}
+return raw_value;
+
+  }
 
 void DriveSubsystem::Periodic() {
   // Implementation of subsystem periodic method goes here.
