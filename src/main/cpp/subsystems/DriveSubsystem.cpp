@@ -12,12 +12,27 @@ void DriveSubsystem::Init() {
 
 }
 
-void DriveSubsystem::ArcadeDrive( double translation , ? ) {
+void DriveSubsystem::ArcadeDrive( double translation , double rotation ) {
   //do drive stuff
-  m_front_left.Set(0);
-  m_front_right.Set(0);
-  m_back_left.Set(0);
-  m_back_right.Set(0);
+
+  double filtered_translation = DeadBandFilter (translation);
+  double filtered_rotation = DeadBandFilter (rotation);
+  
+  double right_side = (rotation + translation)*0.2;
+  double left_side = (translation - rotation)*0.2;
+
+  m_front_left.Set(left_side);
+  m_back_left.Set(left_side);
+
+  m_front_right.Set(right_side);
+  m_back_right.Set(right_side);
+}
+
+double DriveSubsystem::DeadBandFilter(double raw_value) {
+if (-0.1<=raw_value and raw_value<=0.1) {
+  return 0;
+  }
+  return raw_value;
 }
 
 void DriveSubsystem::Periodic() {

@@ -20,7 +20,7 @@ RobotContainer::RobotContainer() {
   //set the default command for the drive subsystem to always schedule
   drive_subsystem.SetDefaultCommand(frc2::RunCommand(
       [this] {
-        drive_subsystem.ArcadeDrive(xbox.GetLeftY(), ? );
+        drive_subsystem.ArcadeDrive(xbox.GetLeftY(), xbox.GetRightX() );
       },
       {&drive_subsystem}));
 }
