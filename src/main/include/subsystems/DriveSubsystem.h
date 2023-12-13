@@ -47,6 +47,6 @@ class DriveSubsystem : public frc2::SubsystemBase {
   // declared private and exposed only through public methods.
   rev::CANSparkMax m_front_left{1, rev::CANSparkMax::MotorType::kBrushless};
   rev::CANSparkMax m_front_right{2, rev::CANSparkMax::MotorType::kBrushless};
-  rev::CANSparkMax m_back_left{3, rev::CANSparkMax::MotorType::kBrushless};
-  rev::CANSparkMax m_back_right{4, rev::CANSparkMax::MotorType::kBrushless};
+  rev::CANSparkMax m_back_left{4, rev::CANSparkMax::MotorType::kBrushless};
+  rev::CANSparkMax m_back_right{3, rev::CANSparkMax::MotorType::kBrushless};
 };
