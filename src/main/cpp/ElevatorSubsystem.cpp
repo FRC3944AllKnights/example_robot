@@ -14,7 +14,12 @@ void ElevatorSubsystem::Init() {
 
 void ElevatorSubsystem::Intake(bool spin ) {
   //intake ball
-  m_elevator.Set(0.2);
+  if (spin) {
+    m_elevator.Set(0.2);
+  }
+  else {
+    m_elevator.Set(0.0);
+  }
 }
 
 
