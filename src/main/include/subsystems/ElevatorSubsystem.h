@@ -23,12 +23,6 @@ class ElevatorSubsystem : public frc2::SubsystemBase {
   */
   void Init();
 
-  /**
-   * given a raw value of range -1 to 1, removes numbers close to zero.
-   * @param raw_value the value to be filtered. Expects -1 to 1.
-   * @return the filtered value. Will be zero if raw value was close to zero.
-  */
-  double DeadBandFilter(double raw_value);
 
   /**
    * Will be called periodically whenever the CommandScheduler runs.

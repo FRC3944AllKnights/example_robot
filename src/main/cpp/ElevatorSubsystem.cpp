@@ -14,19 +14,9 @@ void ElevatorSubsystem::Init() {
 
 void ElevatorSubsystem::Intake(bool spin ) {
   //intake ball
-
-  double filtered_spin = DeadBandFilter (spin);
-
-
   m_elevator.Set(0.2);
 }
 
-double ElevatorSubsystem::DeadBandFilter(double raw_value) {
-if (-0.1<=raw_value and raw_value<=0.1) {
-  return 0;
-  }
-  return raw_value;
-}
 
 void ElevatorSubsystem::Periodic() {
   // Implementation of subsystem periodic method goes here.
