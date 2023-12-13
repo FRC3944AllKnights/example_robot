@@ -16,8 +16,8 @@ void DriveSubsystem::ArcadeDrive( double translation, double rotation  ) {
   //do drive stuff
   double regular_translation = DeadBandFilter(translation);
   double regular_rotation = DeadBandFilter(translation);
-  double right_side = (rotation + filtered_translation)*0.2;
-  double left_side = (filtered_translation - filtered_rotation)*0.2;
+  double right_side = (rotation + regular_translation)*0.2;
+  double left_side = (regular_translation - regular_rotation)*0.2;
   m_front_left.Set(-left_side);
   m_back_left.Set(-left_side);
 
