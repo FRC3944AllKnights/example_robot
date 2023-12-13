@@ -15,8 +15,8 @@ void DriveSubsystem::Init() {
 void DriveSubsystem::ArcadeDrive( double translation, double rotation  ) {
   //do drive stuff
   double regular_translation = DeadBandFilter(translation);
-  double regular_rotation = DeadBandFilter(translation);
-  double right_side = (rotation + regular_translation)*0.2;
+  double regular_rotation = DeadBandFilter(rotation);
+  double right_side = (regular_rotation + regular_translation)*0.2;
   double left_side = (regular_translation - regular_rotation)*0.2;
   m_front_left.Set(-left_side);
   m_back_left.Set(-left_side);
@@ -26,7 +26,7 @@ void DriveSubsystem::ArcadeDrive( double translation, double rotation  ) {
 }
 
 double DriveSubsystem::DeadBandFilter(double raw_value){
-if (0.1 <=raw_value and raw_value>= -0.1 ) return 0;
+if (0.1 >=raw_value and raw_value>= -0.1 ) return 0;
 return raw_value;
 }
 
