@@ -9,7 +9,8 @@ DriveSubsystem::DriveSubsystem() {
 }
 
 void DriveSubsystem::Init() {
-
+m_front_left.SetInverted(true);
+m_back_left.SetInverted(true);
 }
 
 void DriveSubsystem::ArcadeDrive( double translation , double rotation ) {

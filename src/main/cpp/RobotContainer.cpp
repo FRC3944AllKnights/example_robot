@@ -32,6 +32,10 @@ void RobotContainer::ConfigureBindings() {
   xbox.B().OnTrue(new frc2::InstantCommand([this] { drive_subsystem.Init(); }, {&drive_subsystem}));
 }
 
+void RobotContainer::InitSubsystems(){
+drive_subsystem.Init();
+}
+
 frc2::CommandPtr RobotContainer::GetAutonomousCommand() {
   // An example command will be run in autonomous
   return autos::ExampleAuto(&drive_subsystem);
