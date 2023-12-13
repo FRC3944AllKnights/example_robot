@@ -15,14 +15,14 @@ void DriveSubsystem::Init() {
 void DriveSubsystem::ArcadeDrive( double translation ,double rotation) {
   //do drive stuff
   double filtered_translation = DeadBandFilter(translation);
- double right_side = (rotation + translation)*0.2;
- double left_side = (translation - rotation)*0.2;
+ double right_side = (rotation + filtered_translation)*0.2;
+ double left_side = (filtered_translation - rotation)*0.2;
  
-  m_front_left.Set(rotation);
-  m_front_right.Set(rotation);
+  m_front_left.Set(left_side);
+  m_front_right.Set(right_side);
   
-  m_back_left.Set(rotation);
-  m_back_right.Set(rotation);}
+  m_back_left.Set(left_side);
+  m_back_right.Set(right_side);}
 
   double DriveSubsystem::DeadBandFilter(double raw_value){
 
