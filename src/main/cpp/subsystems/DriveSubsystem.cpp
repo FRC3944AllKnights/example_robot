@@ -17,6 +17,7 @@ void DriveSubsystem::ArcadeDrive( double translation , double rotation ) {
 
   double filtered_translation = DeadBandFilter (translation);
   double filtered_rotation = DeadBandFilter (rotation);
+
   
   double right_side = (rotation + translation)*0.2;
   double left_side = (translation - rotation)*0.2;
