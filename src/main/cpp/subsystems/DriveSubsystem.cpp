@@ -29,7 +29,7 @@ void DriveSubsystem::ArcadeDrive( double translation ,double rotation) {
 
 
 
-if (0.1>raw_value>-0.1) {return 0;}
+if (0.1>raw_value && -0.1<raw_value) {return 0;}
 return raw_value;
 
   }
